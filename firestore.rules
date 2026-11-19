@@ -1,0 +1,211 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        ('email_verified' in request.auth.token &&
+         request.auth.token.email_verified == true &&
+         'email' in request.auth.token &&
+         request.auth.token.email == 'sojibahmed186@gmail.com')
+      );
+    }
+
+    function isValidCategory(cat) {
+      return cat is string && cat in ['food', 'coffee', 'tea', 'juice', 'cold drinks', 'mojito', 'cake'];
+    }
+
+    function isValidItem(data) {
+      return data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+             isValidCategory(data.cat) &&
+             data.name is string && data.name.size() >= 1 && data.name.size() <= 80 &&
+             (data.price is int || data.price is float) && data.price >= 0 && data.price <= 100000 &&
+             (!('photo' in data) || (data.photo is string && data.photo.size() <= 150000)) &&
+             data.createdAt is timestamp && data.createdAt <= request.time &&
+             data.updatedAt is timestamp && data.updatedAt <= request.time;
+    }
+
+    function isValidPerson(data) {
+      return data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+             data.name is string && data.name.size() >= 1 && data.name.size() <= 80 &&
+             data.createdAt is timestamp && data.createdAt <= request.time;
+    }
+
+    function isValidEntry(data) {
+      return data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+             data.item is string && data.item.size() >= 1 && data.item.size() <= 200 &&
+             data.base is string && data.base.size() >= 1 && data.base.size() <= 80 &&
+             isValidCategory(data.cat) &&
+             (data.price is int || data.price is float) && data.price >= 0 && data.price <= 100000 &&
+             data.qty is int && data.qty >= 1 && data.qty <= 10000 &&
+             (data.total is int || data.total is float) && data.total >= 0 && data.total <= 10000000 &&
+             data.person is string && data.person.size() >= 1 && data.person.size() <= 80 &&
+             data.ts is int && data.ts > 0 &&
+             (!('note' in data) || (data.note is string && data.note.size() <= 250)) &&
+             data.createdAt is timestamp && data.createdAt <= request.time;
+    }
+
+    function isValidNote(data) {
+      return data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+             data.scope is string && data.scope in ['free', 'delivery'] &&
+             data.itemId is string && data.itemId.size() >= 1 && data.itemId.size() <= 128 &&
+             data.text is string && data.text.size() >= 1 && data.text.size() <= 80 &&
+             data.createdAt is timestamp && data.createdAt <= request.time;
+    }
+
+    function isValidDlItem(data) {
+      return data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+             data.name is string && data.name.size() >= 1 && data.name.size() <= 80 &&
+             (!('photo' in data) || (data.photo is string && data.photo.size() <= 150000)) &&
+             data.createdAt is timestamp && data.createdAt <= request.time &&
+             data.updatedAt is timestamp && data.updatedAt <= request.time;
+    }
+
+    function isValidDlEntry(data) {
+      return data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+             data.item is string && data.item.size() >= 1 && data.item.size() <= 200 &&
+             data.base is string && data.base.size() >= 1 && data.base.size() <= 80 &&
+             data.qty is int && data.qty >= 1 && data.qty <= 10000 &&
+             data.ts is int && data.ts > 0 &&
+             (!('note' in data) || (data.note is string && data.note.size() <= 250)) &&
+             data.createdAt is timestamp && data.createdAt <= request.time;
+    }
+
+    function isValidStaff(data) {
+      return data.uid is string && data.uid.size() >= 1 && data.uid.size() <= 128 &&
+             data.email is string && data.email.size() >= 1 && data.email.size() <= 160 &&
+             data.displayName is string && data.displayName.size() <= 100 &&
+             data.updatedAt is timestamp && data.updatedAt <= request.time;
+    }
+
+    match /admins/{adminId} {
+      allow get: if isSignedIn() && isValidId(adminId) && request.auth.uid == adminId;
+      allow list, write: if false;
+    }
+
+    match /staff/{staffId} {
+      allow get: if isSignedIn() && isValidId(staffId) && (request.auth.uid == staffId || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isSignedIn() && isValidId(staffId) &&
+                       request.auth.uid == staffId &&
+                       incoming().uid == request.auth.uid &&
+                       incoming().keys().hasAll(['uid', 'email', 'displayName', 'updatedAt']) &&
+                       incoming().keys().hasOnly(['uid', 'email', 'displayName', 'updatedAt']) &&
+                       isValidStaff(incoming());
+      allow update: if isSignedIn() && isValidId(staffId) &&
+                       isValidStaff(incoming()) &&
+                       request.auth.uid == staffId &&
+                       incoming().uid == existing().uid &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['email', 'displayName', 'updatedAt']);
+      allow delete: if false;
+    }
+
+    match /items/{itemId} {
+      allow get: if isSignedIn() && isValidId(itemId) && (existing().uid == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (existing().uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(itemId) &&
+                       incoming().uid == request.auth.uid &&
+                       incoming().keys().hasAll(['uid', 'cat', 'name', 'price', 'createdAt', 'updatedAt']) &&
+                       incoming().keys().hasOnly(['uid', 'cat', 'name', 'price', 'photo', 'createdAt', 'updatedAt']) &&
+                       isValidItem(incoming());
+      allow update: if isSignedIn() && isValidId(itemId) &&
+                       isValidItem(incoming()) &&
+                       (existing().uid == request.auth.uid || isAdmin()) &&
+                       incoming().uid == existing().uid &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['cat', 'name', 'price', 'photo', 'updatedAt']);
+      allow delete: if isSignedIn() && isValidId(itemId) && (existing().uid == request.auth.uid || isAdmin());
+    }
+
+    match /people/{personId} {
+      allow get: if isSignedIn() && isValidId(personId) && (existing().uid == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (existing().uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(personId) &&
+                       incoming().uid == request.auth.uid &&
+                       incoming().keys().hasAll(['uid', 'name', 'createdAt']) &&
+                       incoming().keys().hasOnly(['uid', 'name', 'createdAt']) &&
+                       isValidPerson(incoming());
+      allow update: if isSignedIn() && isValidId(personId) &&
+                       isValidPerson(incoming()) &&
+                       (existing().uid == request.auth.uid || isAdmin()) &&
+                       incoming().uid == existing().uid &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['name']);
+      allow delete: if isSignedIn() && isValidId(personId) && (existing().uid == request.auth.uid || isAdmin());
+    }
+
+    match /entries/{entryId} {
+      allow get: if isSignedIn() && isValidId(entryId) && (existing().uid == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (existing().uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(entryId) &&
+                       incoming().uid == request.auth.uid &&
+                       incoming().keys().hasAll(['uid', 'item', 'base', 'cat', 'price', 'qty', 'total', 'person', 'ts', 'createdAt']) &&
+                       incoming().keys().hasOnly(['uid', 'item', 'base', 'cat', 'price', 'qty', 'total', 'person', 'ts', 'note', 'createdAt']) &&
+                       isValidEntry(incoming());
+      allow update: if false;
+      allow delete: if isSignedIn() && isValidId(entryId) && (existing().uid == request.auth.uid || isAdmin());
+    }
+
+    match /notes/{noteId} {
+      allow get: if isSignedIn() && isValidId(noteId) && (existing().uid == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (existing().uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(noteId) &&
+                       incoming().uid == request.auth.uid &&
+                       incoming().keys().hasAll(['uid', 'scope', 'itemId', 'text', 'createdAt']) &&
+                       incoming().keys().hasOnly(['uid', 'scope', 'itemId', 'text', 'createdAt']) &&
+                       isValidNote(incoming());
+      allow update: if false;
+      allow delete: if isSignedIn() && isValidId(noteId) && (existing().uid == request.auth.uid || isAdmin());
+    }
+
+    match /dlItems/{dlItemId} {
+      allow get: if isSignedIn() && isValidId(dlItemId) && (existing().uid == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (existing().uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(dlItemId) &&
+                       incoming().uid == request.auth.uid &&
+                       incoming().keys().hasAll(['uid', 'name', 'createdAt', 'updatedAt']) &&
+                       incoming().keys().hasOnly(['uid', 'name', 'photo', 'createdAt', 'updatedAt']) &&
+                       isValidDlItem(incoming());
+      allow update: if isSignedIn() && isValidId(dlItemId) &&
+                       isValidDlItem(incoming()) &&
+                       (existing().uid == request.auth.uid || isAdmin()) &&
+                       incoming().uid == existing().uid &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['name', 'photo', 'updatedAt']);
+      allow delete: if isSignedIn() && isValidId(dlItemId) && (existing().uid == request.auth.uid || isAdmin());
+    }
+
+    match /dlEntries/{dlEntryId} {
+      allow get: if isSignedIn() && isValidId(dlEntryId) && (existing().uid == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (existing().uid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && isValidId(dlEntryId) &&
+                       incoming().uid == request.auth.uid &&
+                       incoming().keys().hasAll(['uid', 'item', 'base', 'qty', 'ts', 'createdAt']) &&
+                       incoming().keys().hasOnly(['uid', 'item', 'base', 'qty', 'ts', 'note', 'createdAt']) &&
+                       isValidDlEntry(incoming());
+      allow update: if false;
+      allow delete: if isSignedIn() && isValidId(dlEntryId) && (existing().uid == request.auth.uid || isAdmin());
+    }
+  }
+}

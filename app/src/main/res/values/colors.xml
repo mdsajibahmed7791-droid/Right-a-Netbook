@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="notebook_bg_dark">#0A1220</color>
+    <color name="notebook_bg_teal_deep">#1A5A5E</color>
+    <color name="notebook_teal">#34B5A5</color>
+</resources>

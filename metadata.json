@@ -1,0 +1,6 @@
+{
+  "name": "Notebook",
+  "description": "Café free-item and shop delivery logger with monthly PDF reports and admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

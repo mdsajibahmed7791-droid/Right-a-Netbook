@@ -1,0 +1,148 @@
+<resources>
+    <string name="app_name">Notebook</string>
+    <string name="currency_sr">SR</string>
+    <string name="role_admin">Admin</string>
+    <string name="role_staff">Staff</string>
+    <string name="sign_out">Sign out</string>
+    <string name="sign_in_title">Notebook</string>
+    <string name="sign_in_subtitle">Café free-item ledger, shop deliveries &amp; monthly PDF reports</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="sign_in_note">Authorized café accounts only. Offline changes sync automatically.</string>
+    <string name="sign_in_error_config">Google Sign-In configuration missing.</string>
+    <string name="sign_in_error_failed">Sign-in failed. Please try again.</string>
+
+    <!-- Tabs -->
+    <string name="tab_free">Free</string>
+    <string name="tab_items">Items</string>
+    <string name="tab_people">People</string>
+    <string name="tab_report">Report</string>
+    <string name="tab_delivery">Delivery</string>
+    <string name="tab_admin">Admin</string>
+
+    <!-- Categories -->
+    <string name="cat_all">All</string>
+    <string name="cat_food">Food</string>
+    <string name="cat_coffee">Coffee</string>
+    <string name="cat_tea">Tea</string>
+    <string name="cat_juice">Juice</string>
+    <string name="cat_cold_drinks">Cold Drinks</string>
+    <string name="cat_mojito">Mojito</string>
+    <string name="cat_cake">Cake</string>
+
+    <!-- Common -->
+    <string name="search_items_hint">Search all items…</string>
+    <string name="add">Add</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="confirm_delete_title">Confirm Delete</string>
+    <string name="confirm_delete_message">Are you sure you want to delete "%1$s"? This cannot be undone.</string>
+    <string name="quantity">Qty</string>
+    <string name="pieces_count">%1$s pcs</string>
+    <string name="no_items_found">No items yet. Add items in the Items tab.</string>
+    <string name="no_entries_yet">No entries logged yet.</string>
+    <string name="loading">Loading…</string>
+    <string name="retry">Retry</string>
+    <string name="optional_note_hint">Optional note…</string>
+    <string name="date_label">Date</string>
+    <string name="time_label">Time</string>
+    <string name="copy_uid">Copy UID</string>
+    <string name="uid_copied">UID copied</string>
+    <string name="saved_success">Saved successfully</string>
+    <string name="updated_success">Updated successfully</string>
+
+    <!-- Free Tab & Order -->
+    <string name="saved_notes">Saved Notes</string>
+    <string name="new_note_hint">Write a new note…</string>
+    <string name="add_to_order">Add to order</string>
+    <string name="review">Review</string>
+    <string name="review_order">Review Free Order</string>
+    <string name="taken_by">Taken by</string>
+    <string name="select_person">Select person</string>
+    <string name="new_person_name">Or enter new name</string>
+    <string name="taken_by_required">Please select or enter who took the item.</string>
+    <string name="recent_entries">Recent Entries</string>
+    <string name="clear_order">Clear</string>
+    <string name="unit_price_label">Unit: %1$s</string>
+
+    <!-- Items Tab -->
+    <string name="add_new_item">Add Café Item</string>
+    <string name="item_name_hint">Item name</string>
+    <string name="item_price_hint">Price (SR)</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="change_photo">Change photo</string>
+    <string name="clear_photo">Remove photo</string>
+    <string name="error_item_name">Enter a valid item name.</string>
+    <string name="error_item_price">Enter a valid non-negative price.</string>
+    <string name="camera_permission_denied">Camera permission is needed to take item photos.</string>
+    <string name="photo_updated">Photo updated</string>
+    <string name="edit_item">Edit Item</string>
+
+    <!-- People Tab -->
+    <string name="add_person_title">Add Regular Person</string>
+    <string name="person_name_hint">Person name</string>
+    <string name="no_people_yet">No people saved yet. Add regular recipients above.</string>
+    <string name="error_person_name">Enter a valid name.</string>
+    <string name="error_person_exists">This person already exists.</string>
+    <string name="edit_person">Edit Person</string>
+
+    <!-- Report Tab -->
+    <string name="everyone">Everyone</string>
+    <string name="filter_person">Person</string>
+    <string name="total_loss">Total Loss</string>
+    <string name="total_pieces">Total Pieces</string>
+    <string name="entries_count">Entries</string>
+    <string name="top_person">Top Person</string>
+    <string name="top_item">Top Item</string>
+    <string name="by_category">By Category</string>
+    <string name="daily_chart">Daily Trend</string>
+    <string name="by_person">By Person</string>
+    <string name="by_item">By Item</string>
+    <string name="download_pdf">Download PDF</string>
+    <string name="share_pdf">Share PDF</string>
+    <string name="pdf_saved">PDF saved</string>
+    <string name="pdf_error">Could not generate PDF</string>
+    <string name="none_dash">—</string>
+
+    <!-- Delivery Tab -->
+    <string name="delivery_log_mode">Log</string>
+    <string name="delivery_report_mode">Report &amp; Items</string>
+    <string name="review_delivery">Review Shop Delivery</string>
+    <string name="recent_deliveries">Recent Deliveries</string>
+    <string name="delivery_this_month">Month Pieces</string>
+    <string name="delivery_today">Today Pieces</string>
+    <string name="delivery_days">Delivery Days</string>
+    <string name="per_day_log">Per-Day Breakdown</string>
+    <string name="delivery_only_items">Delivery-Only Items</string>
+    <string name="add_delivery_item">Add Delivery Item</string>
+    <string name="delivery_only_badge">Delivery</string>
+    <string name="no_deliveries_yet">No deliveries logged for this month.</string>
+
+    <!-- Admin Tab -->
+    <string name="all_staff">All Staff</string>
+    <string name="filter_staff">Staff</string>
+    <string name="top_staff">Top Staff</string>
+    <string name="by_staff">By Staff</string>
+    <string name="staff_email_col">Staff</string>
+    <string name="loss_by_day">Loss per Day</string>
+    <string name="loss_by_category">Loss per Category</string>
+    <string name="all_entries_readonly">All Staff Entries (Read-Only)</string>
+    <string name="delivery_summary_admin">Other Shop Delivery Summary</string>
+    <string name="staff_directory_title">Staff Accounts &amp; Roles</string>
+    <string name="staff_directory_desc">Staff sign in with Google Sign-In in this environment. Add an admin document at admins/{uid} in Firestore Console to grant owner access, or enable Email/Password auth in Firebase Console for standalone APKs.</string>
+    <string name="your_uid">Your UID: %1$s</string>
+
+    <!-- PDF Labels -->
+    <string name="pdf_free_title">Notebook — Monthly Free Report</string>
+    <string name="pdf_delivery_title">Notebook — Shop Delivery Report</string>
+    <string name="pdf_admin_title">Notebook — Admin Master Report</string>
+    <string name="pdf_for_label">Scope: %1$s</string>
+    <string name="pdf_page_footer">Page %1$s / %2$s</string>
+    <string name="pdf_col_name">Name</string>
+    <string name="pdf_col_entries">Entries</string>
+    <string name="pdf_col_pieces">Pieces</string>
+    <string name="pdf_col_total">Total</string>
+    <string name="pdf_col_day">Day</string>
+    <string name="pdf_col_details">Items</string>
+</resources>

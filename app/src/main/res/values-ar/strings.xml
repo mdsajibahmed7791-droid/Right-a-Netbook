@@ -1,0 +1,148 @@
+<resources>
+    <string name="app_name">دفتر الملاحظات</string>
+    <string name="currency_sr">SR</string>
+    <string name="role_admin">المدير</string>
+    <string name="role_staff">موظف</string>
+    <string name="sign_out">تسجيل الخروج</string>
+    <string name="sign_in_title">دفتر الملاحظات</string>
+    <string name="sign_in_subtitle">سجل الضيافة المجانية وتوصيلات المتجر والتقارير الشهرية</string>
+    <string name="sign_in_google">تسجيل الدخول عبر Google</string>
+    <string name="sign_in_note">للحسابات المصرح بها فقط. تتم مزامنة البيانات دون اتصال تلقائياً.</string>
+    <string name="sign_in_error_config">إعدادات تسجيل الدخول عبر Google مفقودة.</string>
+    <string name="sign_in_error_failed">فشل تسجيل الدخول. يرجى المحاولة مرة أخرى.</string>
+
+    <!-- Tabs -->
+    <string name="tab_free">مجاني</string>
+    <string name="tab_items">الأصناف</string>
+    <string name="tab_people">الأشخاص</string>
+    <string name="tab_report">التقرير</string>
+    <string name="tab_delivery">التوصيل</string>
+    <string name="tab_admin">الإدارة</string>
+
+    <!-- Categories -->
+    <string name="cat_all">الكل</string>
+    <string name="cat_food">طعام</string>
+    <string name="cat_coffee">قهوة</string>
+    <string name="cat_tea">شاي</string>
+    <string name="cat_juice">عصير</string>
+    <string name="cat_cold_drinks">مشروبات باردة</string>
+    <string name="cat_mojito">موهيتو</string>
+    <string name="cat_cake">كيك</string>
+
+    <!-- Common -->
+    <string name="search_items_hint">ابحث في جميع الأصناف…</string>
+    <string name="add">إضافة</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="delete">حذف</string>
+    <string name="confirm_delete_title">تأكيد الحذف</string>
+    <string name="confirm_delete_message">هل أنت متأكد من حذف "%1$s"؟ لا يمكن التراجع عن ذلك.</string>
+    <string name="quantity">الكمية</string>
+    <string name="pieces_count">%1$s قطعة</string>
+    <string name="no_items_found">لا توجد أصناف بعد. أضف أصنافاً من تبويب الأصناف.</string>
+    <string name="no_entries_yet">لا توجد سجلات بعد.</string>
+    <string name="loading">جارٍ التحميل…</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="optional_note_hint">ملاحظة اختيارية…</string>
+    <string name="date_label">التاريخ</string>
+    <string name="time_label">الوقت</string>
+    <string name="copy_uid">نسخ المعرف</string>
+    <string name="uid_copied">تم نسخ المعرف</string>
+    <string name="saved_success">تم الحفظ بنجاح</string>
+    <string name="updated_success">تم التحديث بنجاح</string>
+
+    <!-- Free Tab & Order -->
+    <string name="saved_notes">الملاحظات المحفوظة</string>
+    <string name="new_note_hint">اكتب ملاحظة جديدة…</string>
+    <string name="add_to_order">إضافة للطلب</string>
+    <string name="review">مراجعة</string>
+    <string name="review_order">مراجعة الطلب المجاني</string>
+    <string name="taken_by">المستلم</string>
+    <string name="select_person">اختر شخصاً</string>
+    <string name="new_person_name">أو اكتب اسماً جديداً</string>
+    <string name="taken_by_required">يرجى اختيار أو إدخال اسم المستلم.</string>
+    <string name="recent_entries">أحدث السجلات</string>
+    <string name="clear_order">مسح</string>
+    <string name="unit_price_label">السعر: %1$s</string>
+
+    <!-- Items Tab -->
+    <string name="add_new_item">إضافة صنف جديد</string>
+    <string name="item_name_hint">اسم الصنف</string>
+    <string name="item_price_hint">السعر (SR)</string>
+    <string name="camera">الكاميرا</string>
+    <string name="gallery">المعرض</string>
+    <string name="change_photo">تغيير الصورة</string>
+    <string name="clear_photo">إزالة الصورة</string>
+    <string name="error_item_name">أدخل اسم صنف صحيح.</string>
+    <string name="error_item_price">أدخل سعراً صحيحاً غير سالب.</string>
+    <string name="camera_permission_denied">مطلوب إذن الكاميرا لالتقاط صور الأصناف.</string>
+    <string name="photo_updated">تم تحديث الصورة</string>
+    <string name="edit_item">تعديل الصنف</string>
+
+    <!-- People Tab -->
+    <string name="add_person_title">إضافة شخص دائم</string>
+    <string name="person_name_hint">اسم الشخص</string>
+    <string name="no_people_yet">لا يوجد أشخاص محفوظون بعد.</string>
+    <string name="error_person_name">أدخل اسماً صحيحاً.</string>
+    <string name="error_person_exists">هذا الاسم موجود بالفعل.</string>
+    <string name="edit_person">تعديل الاسم</string>
+
+    <!-- Report Tab -->
+    <string name="everyone">الجميع</string>
+    <string name="filter_person">الشخص</string>
+    <string name="total_loss">إجمالي التكلفة</string>
+    <string name="total_pieces">إجمالي القطع</string>
+    <string name="entries_count">السجلات</string>
+    <string name="top_person">أكثر مستلم</string>
+    <string name="top_item">أكثر صنف</string>
+    <string name="by_category">حسب الفئة</string>
+    <string name="daily_chart">المخطط اليومي</string>
+    <string name="by_person">حسب الشخص</string>
+    <string name="by_item">حسب الصنف</string>
+    <string name="download_pdf">تنزيل PDF</string>
+    <string name="share_pdf">مشاركة PDF</string>
+    <string name="pdf_saved">تم حفظ ملف PDF</string>
+    <string name="pdf_error">تعذر إنشاء ملف PDF</string>
+    <string name="none_dash">—</string>
+
+    <!-- Delivery Tab -->
+    <string name="delivery_log_mode">تسجيل</string>
+    <string name="delivery_report_mode">التقرير والأصناف</string>
+    <string name="review_delivery">مراجعة توصيل المتجر</string>
+    <string name="recent_deliveries">أحدث التوصيلات</string>
+    <string name="delivery_this_month">قطع الشهر</string>
+    <string name="delivery_today">قطع اليوم</string>
+    <string name="delivery_days">أيام التوصيل</string>
+    <string name="per_day_log">التفاصيل اليومية</string>
+    <string name="delivery_only_items">أصناف التوصيل فقط</string>
+    <string name="add_delivery_item">إضافة صنف توصيل</string>
+    <string name="delivery_only_badge">توصيل</string>
+    <string name="no_deliveries_yet">لا توجد توصيلات مسجلة لهذا الشهر.</string>
+
+    <!-- Admin Tab -->
+    <string name="all_staff">جميع الموظفين</string>
+    <string name="filter_staff">الموظف</string>
+    <string name="top_staff">أكثر موظف</string>
+    <string name="by_staff">حسب الموظف</string>
+    <string name="staff_email_col">الموظف</string>
+    <string name="loss_by_day">التكلفة اليومية</string>
+    <string name="loss_by_category">التكلفة حسب الفئة</string>
+    <string name="all_entries_readonly">سجلات جميع الموظفين (للقراءة فقط)</string>
+    <string name="delivery_summary_admin">ملخص توصيل المتجر</string>
+    <string name="staff_directory_title">حسابات الموظفين والصلاحيات</string>
+    <string name="staff_directory_desc">يسجل الموظفون الدخول عبر Google في هذه البيئة. أضف مستند admins/{uid} في وحدة تحكم Firestore لمنح صلاحية المدير.</string>
+    <string name="your_uid">معرفك: %1$s</string>
+
+    <!-- PDF Labels -->
+    <string name="pdf_free_title">دفتر الملاحظات — تقرير الضيافة الشهري</string>
+    <string name="pdf_delivery_title">دفتر الملاحظات — تقرير توصيل المتجر</string>
+    <string name="pdf_admin_title">دفتر الملاحظات — تقرير الإدارة الشامل</string>
+    <string name="pdf_for_label">النطاق: %1$s</string>
+    <string name="pdf_page_footer">صفحة %1$s / %2$s</string>
+    <string name="pdf_col_name">الاسم</string>
+    <string name="pdf_col_entries">السجلات</string>
+    <string name="pdf_col_pieces">القطع</string>
+    <string name="pdf_col_total">الإجمالي</string>
+    <string name="pdf_col_day">اليوم</string>
+    <string name="pdf_col_details">الأصناف</string>
+</resources>

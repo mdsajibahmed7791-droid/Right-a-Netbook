@@ -1,0 +1,152 @@
+{
+  "entities": {
+    "MenuItem": {
+      "title": "MenuItem",
+      "description": "A café item with category, snapshot price, and optional base64 thumbnail.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Owner staff/admin UID" },
+        "cat": {
+          "type": "string",
+          "enum": ["food", "coffee", "tea", "juice", "cold drinks", "mojito", "cake"],
+          "description": "Category key"
+        },
+        "name": { "type": "string", "description": "Item display name" },
+        "price": { "type": "number", "description": "Unit price in SR" },
+        "photo": { "type": "string", "description": "Optional ~200x200 JPEG base64 thumbnail" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["uid", "cat", "name", "price", "createdAt", "updatedAt"]
+    },
+    "Person": {
+      "title": "Person",
+      "description": "A regular recipient of free café items.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Owner staff/admin UID" },
+        "name": { "type": "string", "description": "Person name" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["uid", "name", "createdAt"]
+    },
+    "FreeEntry": {
+      "title": "FreeEntry",
+      "description": "Logged free item entry with snapshot item name and price.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Owner staff/admin UID" },
+        "item": { "type": "string", "description": "Snapshot label including notes" },
+        "base": { "type": "string", "description": "Plain base item name" },
+        "cat": {
+          "type": "string",
+          "enum": ["food", "coffee", "tea", "juice", "cold drinks", "mojito", "cake"],
+          "description": "Category key"
+        },
+        "price": { "type": "number", "description": "Unit price snapshot in SR" },
+        "qty": { "type": "integer", "description": "Quantity" },
+        "total": { "type": "number", "description": "Line total snapshot in SR" },
+        "person": { "type": "string", "description": "Recipient name" },
+        "ts": { "type": "integer", "description": "Entry epoch timestamp in milliseconds" },
+        "note": { "type": "string", "description": "Optional order note" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["uid", "item", "base", "cat", "price", "qty", "total", "person", "ts", "createdAt"]
+    },
+    "SavedNote": {
+      "title": "SavedNote",
+      "description": "Reusable item modifier note scoped to free or delivery tab.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Owner staff/admin UID" },
+        "scope": { "type": "string", "enum": ["free", "delivery"], "description": "Tab scope" },
+        "itemId": { "type": "string", "description": "Associated item document ID" },
+        "text": { "type": "string", "description": "Modifier note label" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["uid", "scope", "itemId", "text", "createdAt"]
+    },
+    "DeliveryItem": {
+      "title": "DeliveryItem",
+      "description": "Extra delivery-only item with optional thumbnail and no price.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Owner staff/admin UID" },
+        "name": { "type": "string", "description": "Item name" },
+        "photo": { "type": "string", "description": "Optional ~200x200 JPEG base64 thumbnail" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["uid", "name", "createdAt", "updatedAt"]
+    },
+    "DeliveryEntry": {
+      "title": "DeliveryEntry",
+      "description": "Other shop delivery item count entry with no price.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Owner staff/admin UID" },
+        "item": { "type": "string", "description": "Snapshot label including notes" },
+        "base": { "type": "string", "description": "Plain base item name" },
+        "qty": { "type": "integer", "description": "Quantity delivered" },
+        "ts": { "type": "integer", "description": "Entry epoch timestamp in milliseconds" },
+        "note": { "type": "string", "description": "Optional delivery note" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["uid", "item", "base", "qty", "ts", "createdAt"]
+    },
+    "StaffProfile": {
+      "title": "StaffProfile",
+      "description": "Authenticated staff profile for admin directory and filtering.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "User UID" },
+        "email": { "type": "string", "description": "Staff email" },
+        "displayName": { "type": "string", "description": "Staff display name" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server timestamp" }
+      },
+      "required": ["uid", "email", "displayName", "updatedAt"]
+    },
+    "AdminMarker": {
+      "title": "AdminMarker",
+      "description": "Server/console-managed admin role marker document.",
+      "type": "object",
+      "properties": {
+        "role": { "type": "string", "description": "Admin role label" }
+      }
+    }
+  },
+  "firestore": {
+    "/items/{itemId}": {
+      "schema": { "$ref": "#/entities/MenuItem" },
+      "description": "Café menu items created by staff/admin."
+    },
+    "/people/{personId}": {
+      "schema": { "$ref": "#/entities/Person" },
+      "description": "Regular people receiving free items."
+    },
+    "/entries/{entryId}": {
+      "schema": { "$ref": "#/entities/FreeEntry" },
+      "description": "Logged free item entries."
+    },
+    "/notes/{noteId}": {
+      "schema": { "$ref": "#/entities/SavedNote" },
+      "description": "Saved modifier notes per item and scope."
+    },
+    "/dlItems/{dlItemId}": {
+      "schema": { "$ref": "#/entities/DeliveryItem" },
+      "description": "Delivery-only items."
+    },
+    "/dlEntries/{dlEntryId}": {
+      "schema": { "$ref": "#/entities/DeliveryEntry" },
+      "description": "Other shop delivery item logs."
+    },
+    "/staff/{staffId}": {
+      "schema": { "$ref": "#/entities/StaffProfile" },
+      "description": "Signed-in staff directory for admin reporting."
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminMarker" },
+      "description": "Admin UID markers."
+    }
+  }
+}

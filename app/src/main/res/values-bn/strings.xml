@@ -1,0 +1,148 @@
+<resources>
+    <string name="app_name">নোটবুক</string>
+    <string name="currency_sr">SR</string>
+    <string name="role_admin">অ্যাডমিন</string>
+    <string name="role_staff">স্টাফ</string>
+    <string name="sign_out">সাইন আউট</string>
+    <string name="sign_in_title">নোটবুক</string>
+    <string name="sign_in_subtitle">ক্যাফে ফ্রি আইটেম হিসাব, শপ ডেলিভারি ও মাসিক পিডিএফ রিপোর্ট</string>
+    <string name="sign_in_google">Google দিয়ে সাইন ইন করুন</string>
+    <string name="sign_in_note">শুধুমাত্র অনুমোদিত ক্যাফে অ্যাকাউন্ট। অফলাইন ডেটা স্বয়ংক্রিয়ভাবে সিঙ্ক হয়।</string>
+    <string name="sign_in_error_config">Google সাইন-ইন কনফিগারেশন পাওয়া যায়নি।</string>
+    <string name="sign_in_error_failed">সাইন-ইন ব্যর্থ হয়েছে। আবার চেষ্টা করুন।</string>
+
+    <!-- Tabs -->
+    <string name="tab_free">ফ্রি</string>
+    <string name="tab_items">আইটেম</string>
+    <string name="tab_people">ব্যক্তি</string>
+    <string name="tab_report">রিপোর্ট</string>
+    <string name="tab_delivery">ডেলিভারি</string>
+    <string name="tab_admin">অ্যাডমিন</string>
+
+    <!-- Categories -->
+    <string name="cat_all">সব</string>
+    <string name="cat_food">খাবার</string>
+    <string name="cat_coffee">কফি</string>
+    <string name="cat_tea">চা</string>
+    <string name="cat_juice">জুস</string>
+    <string name="cat_cold_drinks">কোল্ড ড্রিংকস</string>
+    <string name="cat_mojito">মোহিতো</string>
+    <string name="cat_cake">কেক</string>
+
+    <!-- Common -->
+    <string name="search_items_hint">সব আইটেম খুঁজুন…</string>
+    <string name="add">যোগ করুন</string>
+    <string name="save">সংরক্ষণ</string>
+    <string name="cancel">বাতিল</string>
+    <string name="delete">মুছুন</string>
+    <string name="confirm_delete_title">মুছে ফেলা নিশ্চিত করুন</string>
+    <string name="confirm_delete_message">আপনি কি "%1$s" মুছে ফেলতে চান? এটি আর ফিরিয়ে আনা যাবে না।</string>
+    <string name="quantity">সংখ্যা</string>
+    <string name="pieces_count">%1$s পিস</string>
+    <string name="no_items_found">কোনো আইটেম নেই। আইটেম ট্যাব থেকে যোগ করুন।</string>
+    <string name="no_entries_yet">এখনও কোনো এন্ট্রি নেই।</string>
+    <string name="loading">লোড হচ্ছে…</string>
+    <string name="retry">আবার চেষ্টা</string>
+    <string name="optional_note_hint">ঐচ্ছিক নোট…</string>
+    <string name="date_label">তারিখ</string>
+    <string name="time_label">সময়</string>
+    <string name="copy_uid">UID কপি করুন</string>
+    <string name="uid_copied">UID কপি হয়েছে</string>
+    <string name="saved_success">সফলভাবে সংরক্ষিত</string>
+    <string name="updated_success">সফলভাবে আপডেট হয়েছে</string>
+
+    <!-- Free Tab & Order -->
+    <string name="saved_notes">সংরক্ষিত নোট</string>
+    <string name="new_note_hint">নতুন নোট লিখুন…</string>
+    <string name="add_to_order">অর্ডারে যোগ করুন</string>
+    <string name="review">রিভিউ</string>
+    <string name="review_order">ফ্রি অর্ডার রিভিউ</string>
+    <string name="taken_by">কে নিয়েছেন</string>
+    <string name="select_person">ব্যক্তি নির্বাচন করুন</string>
+    <string name="new_person_name">অথবা নতুন নাম লিখুন</string>
+    <string name="taken_by_required">দয়া করে ব্যক্তির নাম নির্বাচন বা টাইপ করুন।</string>
+    <string name="recent_entries">সাম্প্রতিক এন্ট্রি</string>
+    <string name="clear_order">মুছুন</string>
+    <string name="unit_price_label">একক: %1$s</string>
+
+    <!-- Items Tab -->
+    <string name="add_new_item">নতুন আইটেম যোগ করুন</string>
+    <string name="item_name_hint">আইটেমের নাম</string>
+    <string name="item_price_hint">দাম (SR)</string>
+    <string name="camera">ক্যামেরা</string>
+    <string name="gallery">গ্যালারি</string>
+    <string name="change_photo">ছবি পরিবর্তন</string>
+    <string name="clear_photo">ছবি সরান</string>
+    <string name="error_item_name">সঠিক আইটেমের নাম লিখুন।</string>
+    <string name="error_item_price">সঠিক অ-ঋণাত্মক দাম লিখুন।</string>
+    <string name="camera_permission_denied">ছবি তোলার জন্য ক্যামেরা অনুমতি প্রয়োজন।</string>
+    <string name="photo_updated">ছবি আপডেট হয়েছে</string>
+    <string name="edit_item">আইটেম সম্পাদনা</string>
+
+    <!-- People Tab -->
+    <string name="add_person_title">নিয়মিত ব্যক্তি যোগ করুন</string>
+    <string name="person_name_hint">ব্যক্তির নাম</string>
+    <string name="no_people_yet">এখনও কোনো নাম নেই। উপরে নিয়মিত নাম যোগ করুন।</string>
+    <string name="error_person_name">সঠিক নাম লিখুন।</string>
+    <string name="error_person_exists">এই নামটি ইতিমধ্যেই আছে।</string>
+    <string name="edit_person">ব্যক্তির নাম সম্পাদনা</string>
+
+    <!-- Report Tab -->
+    <string name="everyone">সবাই</string>
+    <string name="filter_person">ব্যক্তি</string>
+    <string name="total_loss">মোট ক্ষতি</string>
+    <string name="total_pieces">মোট পিস</string>
+    <string name="entries_count">এন্ট্রি</string>
+    <string name="top_person">শীর্ষ ব্যক্তি</string>
+    <string name="top_item">শীর্ষ আইটেম</string>
+    <string name="by_category">ক্যাটাগরি অনুযায়ী</string>
+    <string name="daily_chart">দৈনিক চার্ট</string>
+    <string name="by_person">ব্যক্তি অনুযায়ী</string>
+    <string name="by_item">আইটেম অনুযায়ী</string>
+    <string name="download_pdf">PDF ডাউনলোড</string>
+    <string name="share_pdf">PDF শেয়ার</string>
+    <string name="pdf_saved">PDF সংরক্ষিত হয়েছে</string>
+    <string name="pdf_error">PDF তৈরি করা যায়নি</string>
+    <string name="none_dash">—</string>
+
+    <!-- Delivery Tab -->
+    <string name="delivery_log_mode">লগ</string>
+    <string name="delivery_report_mode">রিপোর্ট ও আইটেম</string>
+    <string name="review_delivery">শপ ডেলিভারি রিভিউ</string>
+    <string name="recent_deliveries">সাম্প্রতিক ডেলিভারি</string>
+    <string name="delivery_this_month">এই মাসের পিস</string>
+    <string name="delivery_today">আজকের পিস</string>
+    <string name="delivery_days">ডেলিভারি দিন</string>
+    <string name="per_day_log">দৈনিক তালিকা</string>
+    <string name="delivery_only_items">ডেলিভারি-শুধু আইটেম</string>
+    <string name="add_delivery_item">ডেলিভারি আইটেম যোগ করুন</string>
+    <string name="delivery_only_badge">ডেলিভারি</string>
+    <string name="no_deliveries_yet">এই মাসে কোনো ডেলিভারি লগ নেই।</string>
+
+    <!-- Admin Tab -->
+    <string name="all_staff">সব স্টাফ</string>
+    <string name="filter_staff">স্টাফ</string>
+    <string name="top_staff">শীর্ষ স্টাফ</string>
+    <string name="by_staff">স্টাফ অনুযায়ী</string>
+    <string name="staff_email_col">স্টাফ</string>
+    <string name="loss_by_day">দৈনিক ক্ষতি</string>
+    <string name="loss_by_category">ক্যাটাগরি ক্ষতি</string>
+    <string name="all_entries_readonly">সব স্টাফের এন্ট্রি (শুধু দেখার জন্য)</string>
+    <string name="delivery_summary_admin">অন্যান্য শপ ডেলিভারি সারাংশ</string>
+    <string name="staff_directory_title">স্টাফ অ্যাকাউন্ট ও রোল</string>
+    <string name="staff_directory_desc">এই এনভায়রনমেন্টে স্টাফরা Google সাইন-ইন ব্যবহার করেন। অ্যাডমিন অ্যাক্সেস দিতে Firestore Console-এ admins/{uid} যোগ করুন।</string>
+    <string name="your_uid">আপনার UID: %1$s</string>
+
+    <!-- PDF Labels -->
+    <string name="pdf_free_title">নোটবুক — মাসিক ফ্রি রিপোর্ট</string>
+    <string name="pdf_delivery_title">নোটবুক — শপ ডেলিভারি রিপোর্ট</string>
+    <string name="pdf_admin_title">নোটবুক — অ্যাডমিন মাস্টার রিপোর্ট</string>
+    <string name="pdf_for_label">ফিল্টার: %1$s</string>
+    <string name="pdf_page_footer">পৃষ্ঠা %1$s / %2$s</string>
+    <string name="pdf_col_name">নাম</string>
+    <string name="pdf_col_entries">এন্ট্রি</string>
+    <string name="pdf_col_pieces">পিস</string>
+    <string name="pdf_col_total">মোট</string>
+    <string name="pdf_col_day">তারিখ</string>
+    <string name="pdf_col_details">আইটেম</string>
+</resources>
